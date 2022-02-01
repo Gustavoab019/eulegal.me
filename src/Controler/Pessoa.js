@@ -47,11 +47,10 @@ export async function insertPessoa(req, res){
     const dataaaaa = moment(date).format('DD/MM/YYYY');
 
     const response = status.toString();
-    console.log(response);
+    
 
-    //sendUser(emailId, nameId, data, dataaaaa, response);
-    console.log(saveDate);
-    //console.log();
+    sendUser(emailId, nameId, data, dataaaaa, response);
+    
 }
 
 export async function updatePessoa(req, res){
