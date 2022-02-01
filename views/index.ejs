@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EuLegal</title>
+    <link rel="stylesheet" type="text/css" href="styles/css-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/css-fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/css-iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="styles/css-iofrm-theme3.css">
+</head>
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="index.html">
+                <div class="logo">
+                    <img class="website-logo-inside" src="images/eulegallogo2.png" width="0px" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Manifestação de Interesse, Atualização e Notícias diária sobre Imigração.</h3>
+                        <p>Mantemos você informado mesmo que não tenha tempo para procurar notícias relevantes.</p>
+                        <div class="page-links">
+                            <a href="/" class="active">Quero receber atualizações e<br /> previsões de aceitação.</a>
+                            <a href="/" class="active"><br />Notícias relacionadas a imigração<br />diáriamente 20:00</a>
+                            <br/>
+                            <br/>
+                            <a href="/home" class="active">SEF</a>
+                        </div>
+                        
+                        <section>
+                            <form action="/pessoa" method="POST">
+                                <input class="form-control" type="text" name="name"  placeholder="Nome" required/>
+                                <input class="form-control" type="text" name="email" placeholder="E-mail Principal" required/>
+                                <h6 class="fonts">Status da Manisfestação:</h6>
+                                <input class="form-control" type="text" name="status" placeholder="Aceita ou Não Aceita" required />
+                                <h6 class="fonts">Data da Manisfestação:</h6>
+                                <input class="form-control" type="date" name="date" placeholder="Data da Manifestação    DD/MM/YYYY" required/>
+                                                        
+                                <div class="form-button">
+                                    <button id="submit" type="submit" class="ibtn">Inscrever-se</button> <a href="forget3.html">Alterar Idioma?</a>
+                                </div>
+                            </form>
+                            <div class="other-links">
+                                <span>Follow-us</span><a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div>
+                                <img id="sef" src="images/Logo_SEF_Small.gif">
+                            </div>
+                            </section>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+<script src="js/13-js-main.js"></script>
+</body>
+</html>
