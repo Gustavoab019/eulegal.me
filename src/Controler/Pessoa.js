@@ -44,6 +44,7 @@ export async function insertPessoa(req, res){
     const stringDate = data;
     const date = new Date(stringDate);
 
+
     let acceptOrnot = status.toString();
     let aceita = 'Manisfestação Aceita';
     let notAceita = 'Manisfestação Não Aceita';
@@ -63,6 +64,15 @@ export async function insertPessoa(req, res){
     
     const dataaaaa = moment(date).format('DD/MM/YYYY');
     sendUser(emailId, nameId, data, dataaaaa, maniStatus, marcaAceita);
+
+    date.setDate(date.getDate() + 536); //536
+    const dataaaaa = moment(date).format('DD/MM/YYYY');
+
+    const response = status.toString();
+    
+
+    sendUser(emailId, nameId, data, dataaaaa, response);
+
     
 }
 
