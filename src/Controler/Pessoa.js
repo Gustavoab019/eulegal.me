@@ -62,8 +62,9 @@ export async function insertPessoa(req, res){
         var dataStatus = date.setDate(date.getDate() + 533); //536
     }
 
+    const newdata = moment(dataStatus).format('DD/MM/YYYY');
     
-    sendUser(emailId, nameId, data, dataStatus, maniStatus, marcaAceita);
+    sendUser(emailId, nameId, data, newdata, maniStatus, marcaAceita);
 
     
 }
@@ -115,6 +116,7 @@ export async function sendUser(email, name, data, aceptDate, accept, marcacao){
         from: user,
         to: newuser,
         subject: `Olá ${nome}, Bem Vindo ao EuLegal`,
+        name: 'EuLegal',
         text: `
 Caro(a) Senhor(a)
 
