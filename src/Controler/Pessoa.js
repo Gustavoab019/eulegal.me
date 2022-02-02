@@ -55,24 +55,16 @@ export async function insertPessoa(req, res){
     if(statusManisfestação == false) {
         var maniStatus = aceita;
         var marcaAceita = true;
-        date.setDate(date.getDate() + 102); //536
+        var dataStatus = date.setDate(date.getDate() + 102); //536
     } else {
         var maniStatus = notAceita
         var marcaAceita = false;
-        date.setDate(date.getDate() + 533); //536
+        var dataStatus = date.setDate(date.getDate() + 533); //536
     }
+
     
-    const dataaaaa = moment(date).format('DD/MM/YYYY');
-    sendUser(emailId, nameId, data, dataaaaa, maniStatus, marcaAceita);
-
-    date.setDate(date.getDate() + 536); //536
-    const dataaaaa = moment(date).format('DD/MM/YYYY');
-
-    const response = status.toString();
+    sendUser(emailId, nameId, data, dataStatus, maniStatus, marcaAceita);
     
-
-    sendUser(emailId, nameId, data, dataaaaa, response);
-
     
 }
 
