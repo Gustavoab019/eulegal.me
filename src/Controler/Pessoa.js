@@ -14,6 +14,7 @@ export async function selectPessoas(req, res){
         db.all('SELECT * FROM users')
         .then(email=>  res.json(email))
     });
+    
 }
 
 export async function selectPessoa(req, res){
@@ -55,7 +56,7 @@ export async function insertPessoa(req, res){
     if(statusManisfestação == false) {
         var maniStatus = aceita;
         var marcaAceita = true;
-        var dataStatus = date.setDate(date.getDate() + 102); //536
+        var dataStatus = date.setDate(date.getDate() + 320); //536
     } else {
         var maniStatus = notAceita
         var marcaAceita = false;
