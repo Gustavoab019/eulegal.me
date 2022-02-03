@@ -135,11 +135,13 @@ Obs:
 
 - Gostaria de apoiar esse projeto inovador:
 
-- Siga-nós no Instagram - @eulegal.me https://www.instagram.com/eulegal.me/
+- Siga-nós no Instagram - https://www.instagram.com/eulegal.me/
 
 - Entramos no Instagram a pouco tempo ajude-nós a chegar a 500 seguidores.
 
 - Compartilhe com outras pessoas que estão aguardando por essas informações.
+
+- https://eulegal.herokuapp.com/
 ______________________________________`
 
 
