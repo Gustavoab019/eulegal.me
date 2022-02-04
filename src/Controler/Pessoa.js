@@ -14,7 +14,7 @@ const MONGO_PASS = process.env.MONGO_PASS;
 // import { MongoClient } from 'mongodb'
 
 // Connection URL
-const url = 'mongodb+srv://schelyUser:MoFoRzmgri5QYHEx@clusterdev.3kuwq.mongodb.net/Schely-DB?retryWrites=true&w=majority';
+const url = MONGO_PASS;
 const client = new MongoClient(url);
 
 // Database Name
