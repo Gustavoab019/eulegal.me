@@ -3,11 +3,23 @@ import nodemailer from 'nodemailer';
 import moment from 'moment';
 
 
-export async function createTable(){
-    openDb().then(db=>{
-        db.exec('CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY, nome TEXT, idade INTEGER )')
-    })
-}
+//Database
+import dotenv from "dotenv";
+
+dotenv.config();
+
+import { MongoClient } from "mongodb";
+const MONGO_PASS = process.env.MONGO_PASS;
+// or as an es module:
+// import { MongoClient } from 'mongodb'
+
+// Connection URL
+const url = 'mongodb+srv://schelyUser:MoFoRzmgri5QYHEx@clusterdev.3kuwq.mongodb.net/Schely-DB?retryWrites=true&w=majority';
+const client = new MongoClient(url);
+
+// Database Name
+const dbName = 'eulegal';
+
 
 export async function selectPessoas(req, res){
     openDb().then(db=>{
@@ -22,7 +34,12 @@ export async function selectPessoa(req, res){
     openDb().then(db=>{
         db.get('SELECT * FROM users WHERE id=?', [id])
         .then(pessoa=> res.json(pessoa) );
-    });
+    });/* 
+        // Use connect method to connect to the server
+    await client.connect();
+    console.log('Connected successfully to server');
+    const db = client.db(dbName);
+    db.users.find({"tags": { $in: [id] }}).pretty() */
 }
 
 export async function insertPessoa(req, res){
@@ -34,12 +51,34 @@ export async function insertPessoa(req, res){
     let dateNow = Date.now();
     let saveDate = moment(dateNow).format('DD/MM/YYYY HH:mm:ss');
     
+    async function main() {
+        // Use connect method to connect to the server
+        await client.connect();
+        console.log('Connected successfully to server');
+        const db = client.db(dbName);
+        const collection = db.collection('users');
+        await collection.insertOne({
+          name: pessoa.name, 
+          email:pessoa.email,
+          contato: pessoa.contato,
+          status: pessoa.status,
+          date: pessoa.date,
+          dataCadastro: saveDate
+        });
+        return 'done.';
+        
+    }
+        main()
+        
+        .then(console.log)
+        .catch(console.error)
+        .finally(() => client.close())
+        res.redirect('/success');
 
-
-    openDb().then(db=>{
+   /*  openDb().then(db=>{
         db.run('INSERT INTO users (name, email, contato, status, date, dataCadastro) VALUES (?,?,?,?,?,?)', [pessoa.name, pessoa.email, pessoa.contato, pessoa.status, pessoa.date, saveDate]);
     });
-    res.redirect('/success');
+    res.redirect('/success'); */
 
     //let formatData = formatDate(moment(data));
     const stringDate = data;

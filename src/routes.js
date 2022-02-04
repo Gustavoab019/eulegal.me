@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { createTable, insertPessoa, updatePessoa, selectPessoas, selectPessoa, deletePessoa, sendUser} from './Controler/Pessoa.js';
+import { insertPessoa, updatePessoa, selectPessoas, selectPessoa, deletePessoa, sendUser} from './Controler/Pessoa.js';
+
 
 
 
@@ -13,6 +14,8 @@ const router = Router();
         "msg": "Api Rodando"
     })
 }) */
+
+
 router.get('/', (req, res) => res.render('index.ejs'));
 router.get('/subscribeSEF', (req, res) => res.render('index',{page: 'sefSubscribe'}))
 router.get('/subscribeIMT', (req, res) => res.render('imtSubscribe'))
