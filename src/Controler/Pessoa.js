@@ -75,10 +75,10 @@ export async function insertPessoa(req, res){
         .finally(() => client.close())
         res.redirect('/success');
 
-   /*  openDb().then(db=>{
+    openDb().then(db=>{
         db.run('INSERT INTO users (name, email, contato, status, date, dataCadastro) VALUES (?,?,?,?,?,?)', [pessoa.name, pessoa.email, pessoa.contato, pessoa.status, pessoa.date, saveDate]);
     });
-    res.redirect('/success'); */
+    res.redirect('/success');
 
     //let formatData = formatDate(moment(data));
     const stringDate = data;
