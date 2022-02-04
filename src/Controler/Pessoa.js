@@ -73,7 +73,7 @@ export async function insertPessoa(req, res){
         .then(console.log)
         .catch(console.error)
         .finally(() => client.close())
-        res.redirect('/success');
+        //res.redirect('/success');
 
     openDb().then(db=>{
         db.run('INSERT INTO users (name, email, contato, status, date, dataCadastro) VALUES (?,?,?,?,?,?)', [pessoa.name, pessoa.email, pessoa.contato, pessoa.status, pessoa.date, saveDate]);
