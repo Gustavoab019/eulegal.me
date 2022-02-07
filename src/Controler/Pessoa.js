@@ -91,7 +91,7 @@ export async function insertPessoa(req, res){
     let notAceita = 'Manisfestação Não Aceita';
     
     //false = Aceita true= Não aceita
-   const statusManisfestação = acceptOrnot.includes('Não') || acceptOrnot.includes('não');
+   const statusManisfestação = acceptOrnot.includes('Não') || acceptOrnot.includes('nao');
     
     if(statusManisfestação == false) {
         var maniStatus = aceita;
