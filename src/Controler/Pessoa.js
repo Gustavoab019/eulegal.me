@@ -63,6 +63,7 @@ export async function insertPessoa(req, res){
           contato: pessoa.contato,
           status: pessoa.status,
           date: pessoa.date,
+          dateAceita: newdata,
           dataCadastro: saveDate
         });
         return 'done.';
