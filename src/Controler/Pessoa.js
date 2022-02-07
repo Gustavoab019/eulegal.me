@@ -132,7 +132,7 @@ export async function deletePessoa(req, res){
 
 export async function sendUser(email, name, data, aceptDate, accept, marcacao){
     const user = "news@eulegal.me";
-    const pass = "Gustavoab007@";
+    const pass = process.env.PASS_TOKEN;
     let newuser = email;
     let nome = name;
     let date = moment(data).format('DD/MM/YYYY');
