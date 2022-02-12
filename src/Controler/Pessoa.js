@@ -72,7 +72,7 @@ export async function insertPessoa(req, res){
         // Use connect method to connect to the server
         await client.connect();
         console.log('Connected successfully to server');
-        const db = client.db("Teste");
+        const db = client.db(dbName);
         const collection = db.collection('users');
         await collection.insertOne({
           name: pessoa.name, 
