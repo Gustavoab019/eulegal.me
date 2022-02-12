@@ -54,10 +54,12 @@
                                 <input class="form-control" type="text" name="email" placeholder="E-mail Principal" required/>
                                 <input class="form-control" type="text" name="contato" placeholder="Contato" required/>
                                 <h6 class="fonts">Status da Manisfestação:</h6>
-                                <input class="form-control" type="text" name="status" placeholder="Aceita ou Não Aceita" required />
+                                <select class="form-control" name="status" required>
+                                    <option value="Não aceita">Não Aceita</option>
+                                    <option value="Aceita">Aceita</option>
+                                </select>
                                 <h6 class="fonts">Data da Manisfestação ou Aceita:</h6>
                                 <input class="form-control" type="date" name="date" placeholder="Data da Manifestação    DD/MM/YYYY" required/>
-                       
                                 <div class="form-button">
                                     <button id="submit" type="submit" class="ibtn">Inscrever-se</button> <!-- <a href="forget3.html">Alterar Idioma?</a> -->
                                 </div>

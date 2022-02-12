@@ -2,7 +2,6 @@ import { openDb } from '../configDB.js';
 import nodemailer from 'nodemailer';
 import moment from 'moment';
 
-
 //Database
 import dotenv from "dotenv";
 
@@ -22,24 +21,42 @@ const dbName = 'eulegal';
 
 
 export async function selectPessoas(req, res){
-    openDb().then(db=>{
-        db.all('SELECT * FROM users')
-        .then(email=>  res.json(email))
+    ;
+        MongoClient.connect(url, function (err, client) {
+        if (err) throw err;
+
+        var db = client.db(dbName);
+        
+        const users = db.collection('users').find({}, {$email: 1});
+
+        users.toArray(function(err, items) {
+            if (items){
+                res.json(items);
+            } else {
+                res.json(err)
+            }    
+            client.close();
+        });
     });
     
 }
 
 export async function selectPessoa(req, res){
-    let id = req.body.id;
-    openDb().then(db=>{
-        db.get('SELECT * FROM users WHERE id=?', [id])
-        .then(pessoa=> res.json(pessoa) );
-    });/* 
-        // Use connect method to connect to the server
-    await client.connect();
-    console.log('Connected successfully to server');
-    const db = client.db(dbName);
-    db.users.find({"tags": { $in: [id] }}).pretty() */
+    
+    let name = req.body.name;
+        MongoClient.connect(url, function (err, client) {
+        if (err) throw err;
+
+        var db = client.db(dbName);
+        
+        const users = db.collection('users');
+
+            users.findOne({"name": name}, {email: 0}, function (findErr, result) {
+            if (findErr) throw findErr;
+            res.json(result);
+            client.close();
+        });
+    });
 }
 
 export async function insertPessoa(req, res){
@@ -55,7 +72,7 @@ export async function insertPessoa(req, res){
         // Use connect method to connect to the server
         await client.connect();
         console.log('Connected successfully to server');
-        const db = client.db(dbName);
+        const db = client.db("Teste");
         const collection = db.collection('users');
         await collection.insertOne({
           name: pessoa.name, 
@@ -66,6 +83,7 @@ export async function insertPessoa(req, res){
           dateAceita: newdata,
           dataCadastro: saveDate
         });
+        
         return 'done.';
         
     }
@@ -96,11 +114,11 @@ export async function insertPessoa(req, res){
     if(statusManisfestação == false) {
         var maniStatus = aceita;
         var marcaAceita = true;
-        var dataStatus = date.setDate(date.getDate() + 320); //536
+        var dataStatus = date.setDate(date.getDate() + 500); //536
     } else {
         var maniStatus = notAceita
         var marcaAceita = false;
-        var dataStatus = date.setDate(date.getDate() + 533); //536
+        var dataStatus = date.setDate(date.getDate() + 540); //536
     }
 
     const newdata = moment(dataStatus).format('DD/MM/YYYY');
@@ -156,6 +174,7 @@ export async function sendUser(email, name, data, aceptDate, accept, marcacao){
     transporter.sendMail({
         from: user,
         to: newuser,
+        replyTo: user,
         subject: `Olá ${nome}, Bem Vindo ao EuLegal`,
         name: 'EuLegal',
         text: `

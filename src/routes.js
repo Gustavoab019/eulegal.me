@@ -1,19 +1,23 @@
 import { Router } from "express";
 import { insertPessoa, updatePessoa, selectPessoas, selectPessoa, deletePessoa, sendUser} from './Controler/Pessoa.js';
-
-
-
+//import {allNames} from '../models/users.js';
 
 
 const router = Router();
 
-
-/* router.get('/', (req, res)=>{
-    res.json({
-        "statusCode": 200,
-        "msg": "Api Rodando"
+/* router.get('/newschema', (req, res)=>{
+    const users = new allNames({
+        name: 'Gustavo',
+        email: 'gu@gmail.com'
+    });
+    users.save()
+    .then((result) => {
+        console.log(result);
     })
-}) */
+    .catch((err) => {
+        console.log(err);
+    })
+})  */
 
 
 router.get('/', (req, res) => res.render('index.ejs'));
