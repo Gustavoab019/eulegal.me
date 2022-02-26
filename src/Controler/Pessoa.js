@@ -114,11 +114,11 @@ export async function insertPessoa(req, res){
     if(statusManisfestação == false) {
         var maniStatus = aceita;
         var marcaAceita = true;
-        var dataStatus = date.setDate(date.getDate() + 500); //536
+        var dataStatus = date.setDate(date.getDate() + 505); //536
     } else {
         var maniStatus = notAceita
         var marcaAceita = false;
-        var dataStatus = date.setDate(date.getDate() + 540); //536
+        var dataStatus = date.setDate(date.getDate() + 545); //536
     }
 
     const newdata = moment(dataStatus).format('DD/MM/YYYY');
