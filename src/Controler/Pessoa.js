@@ -118,7 +118,7 @@ export async function insertPessoa(req, res){
     } else {
         var maniStatus = notAceita
         var marcaAceita = false;
-        var dataStatus = date.setDate(date.getDate() + 545); //536
+        var dataStatus = date.setDate(date.getDate() + 550); //536
     }
 
     const newdata = moment(dataStatus).format('DD/MM/YYYY');
