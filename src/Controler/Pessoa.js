@@ -180,16 +180,16 @@ export async function sendUser(email, name, data, aceptDate, accept, marcacao){
         text: `
 Caro(a) Senhor(a)
 
-Aqui está mais informações de sua manisfestação de interesse:
+Aqui está mais informações de sua manifestação de interesse:
 
 ESTADO: ${acceptOrnot}
-DATA DA MANISFESTAÇÃO: ${date}
+DATA DA MANIFESTAÇÃO: ${date}
 PREVISÃO DE ${aceitacao}: ${aceptData}
 
 ______________________________________
 
 Obs: 
-- Este dados são calculado de acordo com relatos de pessoas que estão passando pelo mesmo processo, portanto não são dados oficiais.
+- Este dados são calculado de acordo com relatos de pessoas que estão passando pelos mesmos processos, portanto não são dados oficiais.
 
 - Estamos ajudando centenas de pessoas, que estão a procura de informações sobre suas situações.
 
